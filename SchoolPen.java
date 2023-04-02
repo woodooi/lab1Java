@@ -11,6 +11,13 @@ import ua.lviv.iot.algo.part1.lab1.lab1Java.Pen;
 @SuperBuilder
 
 public class SchoolPen extends Pen {
+    SchoolPen(String id, String brand, String color, String material, double size, int a, int b, int c) {
+        super(id, brand, color, material, size);
+        this.numPens = a;
+        this.numPencils = b;
+        this.numErasers = c;
+    }
+
     public final int pricePen = 2;
     public final int pricePencil = 1;
     public final int priceEraser = 5;
@@ -38,6 +45,11 @@ public class SchoolPen extends Pen {
         else return;
     }
 
+    @Override
+    public int itemsNum() {
+        return numPens + numErasers + numPencils;
+    }
+
     public static SchoolPen instance = new SchoolPen();
 
     static SchoolPen getInstance() {
@@ -46,8 +58,8 @@ public class SchoolPen extends Pen {
 
     @Override
     int calculatePrice() {
-        return numPens*pricePen
-                +numPencils*pricePencil
-                +numErasers*priceEraser;
+        return numPens * pricePen
+                + numPencils * pricePencil
+                + numErasers * priceEraser;
     }
 }
