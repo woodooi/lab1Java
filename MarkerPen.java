@@ -11,23 +11,23 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 
 public class MarkerPen extends Pen {
-    MarkerPen(String id, String brand, String color, String material, double size, int num, String type) {
-        super(id, brand, color, material, size);
-        this.numMarkers = num;
-        this.typeMarkers = type;
-    }
-
     public final int priceMarker = 4;
     private int numMarkers;
     private String typeMarkers;
 
+    MarkerPen(String id, String brand, String color, String material, double size, int num, String type) {
+        super(id, brand, color, material, size);
+        numMarkers = num;
+        typeMarkers = type;
+    }
+
     @Override
-    int calculatePrice() {
+    public int calculatePrice() {
         return numMarkers * priceMarker;
     }
 
     @Override
-    int itemsNum() {
+    public int itemsNum() {
         return numMarkers;
     }
 }

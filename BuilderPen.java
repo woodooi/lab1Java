@@ -8,22 +8,22 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BuilderPen extends Pen {
-    BuilderPen(String id, String brand, String color, String material, double size, int wrenches, int screws) {
-        super(id, brand, color, material, size);
-        this.numWrenches = wrenches;
-        this.numScrewdrivers = screws;
-    }
-
     private int numWrenches;
     private int numScrewdrivers;
 
+    BuilderPen(String id, String brand, String color, String material, double size, int wrenches, int screws) {
+        super(id, brand, color, material, size);
+        numWrenches = wrenches;
+        numScrewdrivers = screws;
+    }
+
     @Override
-    int calculatePrice() {
+    public int calculatePrice() {
         return 0;
     }
 
     @Override
-    int itemsNum() {
+    public int itemsNum() {
         return numScrewdrivers + numWrenches;
     }
 }

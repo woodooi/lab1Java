@@ -14,7 +14,7 @@ public abstract class Pen {
     protected String material;
     protected double size;
 
-    abstract int calculatePrice();
+    public abstract int calculatePrice();
 
-    abstract int itemsNum();
+    public abstract int itemsNum();
 }
